@@ -20,17 +20,14 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironmentExtended) => {
     log: true,
   });
 
-  const vendor = await ethers.getContract("Vendor", deployer);
+  const vendor = await ethers.getContract('Vendor', deployer);
 
   // Todo: transfer the tokens to the vendor
-  console.log("\n 🏵  Sending all 1000 tokens to the vendor...\n");
+  console.log('\n 🏵  Sending all 1000 tokens to the vendor...\n');
 
-  await yourToken.transfer(
-    vendor.address,
-    ethers.utils.parseEther("1000")
-  );
+  await yourToken.transfer(vendor.address, ethers.utils.parseEther('1000'));
 
-  await vendor.transferOwnership("0xC04061A899017EffaAb8248d8445a0928223dd27");
+  await vendor.transferOwnership('0xC04061A899017EffaAb8248d8445a0928223dd27');
 };
 export default func;
 func.tags = ['Vendor'];
